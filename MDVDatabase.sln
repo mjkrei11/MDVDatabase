@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SSRS", "SSRS\SSRS.sqlproj", "{7DD9DC0D-C292-4889-BA9D-72C347D22B47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDVTest", "MDVTest\MDVTest.csproj", "{3A177CA3-5AA9-4DC1-A7CF-394B003F854C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,10 +17,6 @@ Global
 		{7DD9DC0D-C292-4889-BA9D-72C347D22B47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DD9DC0D-C292-4889-BA9D-72C347D22B47}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7DD9DC0D-C292-4889-BA9D-72C347D22B47}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{3A177CA3-5AA9-4DC1-A7CF-394B003F854C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A177CA3-5AA9-4DC1-A7CF-394B003F854C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A177CA3-5AA9-4DC1-A7CF-394B003F854C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A177CA3-5AA9-4DC1-A7CF-394B003F854C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
