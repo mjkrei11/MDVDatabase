@@ -1,0 +1,4 @@
+﻿CREATE procedure sp_ssrs_RateMDsProfileLinks(	@Database nvarchar(200))as/*declare @Database nvarchar(200) = 'CANM'exec sp_ssrs_RateMDsProfileLinks @Database*/declare@sql nvarchar(max),@parms nvarchar(max),@CR char(1)set @CR = char(13)/*set @sql = ' ' + @CRset @sql = @sql + ' ' + @CRexec(@sql)
+*/
+
+set @sql = 'select distinct NPI, FirstName, LastName, replace(LinkTarget, ''%2B'', ''+'') LinkTarget ' + @CRset @sql = @sql + 'from ' + @Database + '.dbo.vw_PhysicianSearch ' + @CRset @sql = @sql + 'where SearchPattern = ''MasterSearch'' ' + @CRset @sql = @sql + 'and LinkTarget like ''%.ratemds.com%'' ' + @CRset @sql = @sql + 'and NPI <> LastName ' + @CRset @sql = @sql + 'order by LastName, FirstName, LinkTarget ' + @CRexec(@sql)

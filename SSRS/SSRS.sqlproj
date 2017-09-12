@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SSRS</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{7dd9dc0d-c292-4889-ba9d-72c347d22b47}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SSRS</RootNamespace>
+    <AssemblyName>SSRS</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\savecommentdates.sql" />
+    <Build Include="dbo\Functions\fn_GetDomain.sql" />
+    <Build Include="dbo\Functions\fn_GetGuid.sql" />
+    <Build Include="dbo\Functions\fn_SplitValues.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ArchiveCurrentRepLinksCompare.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LinkVerification_333.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetRepTrendQuarters.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_PhysicianUpdatedReviews.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FootprintQA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FootprintQA_Overall.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FootprintQA_CombinedNetwork.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_TrendYearQuarter.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FootprintQA_Archive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FootprintQA_CombinedNetwork_Archive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FootprintQA_Overall_Archive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RatingsProgressBySite.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTComments_RepMgmt.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate_Comments.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReferralData_60Day.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LinkClassificationCheck.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RothmanAbsoluteClicks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_BadMatchLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Rothman_RepTrendNetwork_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetDatabases.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LinkVerification.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA_Benchmark.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReferralData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Specialties.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_StandardRatingLinkVerification.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_MatchedLinksQA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RatingTextCompare.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate_Original.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_AggregateSummary_Original.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PieCharts_Original.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_BarChart_Original.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate_Copy.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_AggregateSummary.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate_Table_Original.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PieCharts.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_BarChart.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_SpiderResultsQA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_MatchedLinksQA_Competition.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_STT_PatientSatisfaction.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_SchemaDiscovery.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_SchemaDiscoveryColumns.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GreenLinkCheck.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LocationLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_SystemID_For_Competition.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_CompetitionValidationData_Reputation.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PhysicianRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_CompetitionValidationData_SystemInfo.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_UpdateRepWithDIFFBOTPreview.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PhysicianRatingUpdateTable.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_CompetitionValidationData_SitesWithRatings.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_YearQuarter.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ParmTest.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_QuarterlyTPS_RepTrend_SOS.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_NPI_For_Charts.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PracticeRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_QuarterlyTPS_RepTrend_Summary_SOS.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_GoodSearchResults.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_GoodMatchedLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PracticeSitesRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_MetricRangeMediaData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_AggregateSummary_Copy.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate_Table.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PracticeSitesRatingUpdate_BaselinePieChart.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_DataForVIMeasureRanges.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PracticeSitesRatingUpdate_UpdatedPieChart.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_DataForVISubMeasures.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_ClientMissingLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendNetwork.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PracticeSitesRatingUpdate_BaselineTable.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_DataForHeaderSource.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTMissingRatings_old.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PhysicianWithDifferentStatuses.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Trending_Overall_QA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SQL.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PhysicianInMasterNotInClientDb.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReferralData_2014_60Day.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Trending_Metrics_QA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DoctorRateAnalytics.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PhysicianInClientDbNotInMaster.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReferralData_2015_60Day.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationTrendingPeriods.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_PhyRepUpdate_DateSelector.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_PhysicianReputationData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DuplicateDIFFBOTProfiles.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_ReputationResults.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Rothman_RepTrendNetwork_TopRating_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendingSiteCount.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RatingTextCompareReputation.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_Sales_PhysicianReputationData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendingMissingSites.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTResults.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_TrendingDataAcrossQuarters.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_SystemIDMetricRangeMediaData.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendDifferences.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendingPeriods.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetDBsByServer.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendingSuspectVolumes.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_RemoveBadLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_AppUpdate_PracticeRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ClientNamesAndDatabases.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_AppUpdate_PhysicianRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_PhysicianReputationData_SiteSelection.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_AppUpdate_PracticeSitesRatingUpdate_BaselinePieChart.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_SiteNames.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendingDatabases.sql" />
+    <Build Include="dbo\Stored Procedures\sp_SSRS_AppUpdate_PracticeSitesRatingUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendingMissingResultRaw.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTWeeklyReport.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_UserActivity.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_EngagementQA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTDiffReport_byPeriod.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTbyPeriod_Periods.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PieCharts_Copy.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrendNetwork_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_BarChart_Copy.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetMonths.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrend_Baseline_RollingQuarters.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LinkVerification_999.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Rothman_RepTrendNetwork_TopVolume_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_BenchmarkLinkVerification.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Rothman_RepTrendNetwork_DecreasedRating_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RatingLinkVerification.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_TopTenLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Rothman_RepTrendNetwork_PositiveComments_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_RemoveBadLinks_backup.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTDiffReport.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RateMDsProfileLinks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetClientDatabasesAndSystemNames.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTComments.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LinkTypeCountPerPhysician.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_UsageReport.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_PhysicianRatingUpdate_Table_Copy.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA_Specialties.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_LinkTypeLinksPerPhysician.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA_Groups.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA_Specialties_Archive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_TCO_QuarterlyTPS_RepTrend.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA_Groups_Archive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_MDVRateAnalytics.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_CompetitorDetails.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_CompetitionCustomers.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_PhysicianRatingsSites.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTUpdatedClientRatings.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationDeltas.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetClientDatabases.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_QuarterlyTPS_RepTrend.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_QA_Checks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Old_Trending_Overall_NetworkPage.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_RepTrend_DBsMissingLatestPeriod.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DiffbotDailyChecks.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_CommentsOutsidePeriod.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ActiveWidgets.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetFormInfo.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_Rothman_RepTrendNetwork_NegativeComments_ByMonth.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_FlexMetricReport.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOT_Monthly_Differences.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetDIFFBOTBatches.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_New_Trending_Overall_NetworkPage.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTMissingRatings.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTErrors.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_NPISearch.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetDIFFBOTBatches_ALL.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTComments_original.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_TCO_QuarterlyTPS_RepTrend_Comments.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_DIFFBOTErrorsByBatch.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_ReputationQA_Archive.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_GetClientDatabases_Referral.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_WeeklyTabletClickReport.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ssrs_PhysicianRatingUpdateDIFFBOT.sql" />
+  </ItemGroup>
+</Project>
