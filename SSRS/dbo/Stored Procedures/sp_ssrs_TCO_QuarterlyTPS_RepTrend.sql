@@ -34,7 +34,7 @@ exec sp_executesql @sql, @parms, @TempCustomerSource = @CustomerSource output, @
 
 /*
 set @sql = ' ' + @CR
-set @sql = @sql + ' ' + @CR
+set @sql = @sql + ' ' + @C
 exec(@sql)
 */
 
